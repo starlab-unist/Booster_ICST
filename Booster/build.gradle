@@ -1,0 +1,27 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.evosuite', name: 'evosuite-standalone-runtime', version: '1.0.6'
+    implementation group: 'dk.brics.automaton', name: 'automaton', version: '1.11-8'
+    implementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
+    implementation group: 'fr.inria.gforge.spoon', name: 'spoon-core', version: '7.4.0'
+    implementation 'org.mdkt.compiler:InMemoryJavaCompiler:1.3.0'
+    implementation 'org.dvare:dynamic-loader:2.0'
+    implementation 'ch.qos.logback:logback-classic:1.3.0-alpha4'
+}
+
+def shadow_jar = rootProject.name + '-shadow'
+
+shadowJar {
+    baseName = shadow_jar
+    classifier = null
+    version = null
+}
